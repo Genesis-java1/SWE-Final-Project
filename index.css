@@ -1,0 +1,102 @@
+.search{
+    width:1000px;
+    height:60px;
+    margin-left: 30px;
+    background-color:#f3f3f3ff;
+    margin-bottom: 40px;
+    margin-top: 40px;
+    border-radius: 15px;
+  }
+  
+  .ParentSection{
+    width:1360px;
+    height:500px;
+    margin-left: 0px;
+    flex-direction: row;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .sectionA{
+  background-color: #cfe2f3ff;
+  width: 250px;
+  height: 500px;
+  margin-left: 30px;
+  }
+  
+
+  .sectionBparent > div {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+    background-color: #f7f6f6ff;
+    width: 900px;
+    height: 87px;
+    margin-bottom: 20px;
+    margin-left: 100px;
+  }
+
+  .sectionB1{
+    background-color: #f7f6f6ff;
+    width: 900px;
+    height: 65px;
+    margin-bottom: 20px;
+  }
+  .sectionB2{
+    background-color: #f7f6f6ff;
+    width: 900px;
+    height: 65px;
+    margin-bottom: 20px;
+  }
+  .sectionB3{
+    background-color: #f7f6f6ff;
+    width: 900px;
+    height: 65px;
+    margin-bottom: 20px;
+  }
+  .sectionB4{
+    background-color: #f7f6f6ff;
+    width: 900px;
+    height: 65px;
+    margin-bottom: 20px;
+  }
+  .studentInfoParent{
+    position:relative;
+    margin-left: 108px;
+    width:800px;
+    height:50px;
+    margin-top: -1px;
+    font-size: 19px;
+  }
+
+  .circle {
+    width: 60px;
+    height: 50px;
+    border-radius: 50%;
+    background: #d9d2e9ff;
+    margin-left: 38px;
+    margin-top: 1px;
+  }
+  .footer{
+    margin-top: 50px;
+    width:1360px;
+    height:100px;
+    background-color: #cfe2f3ff;
+  }
+  
+.img1{
+    width:60px;
+    height:60px;
+    position:relative;
+    margin-top:-1px;
+    margin-left: 10px;
+}
+.img2{
+    width:90px;
+    height:90px;
+    position:relative;
+    margin-top:-800px;
+    margin-left: 1200px;
+}
+
+
