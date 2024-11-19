@@ -1,6 +1,11 @@
+
+
+
+
+
 .search{
     width:1000px;
-    height:60px;
+    height:70px;
     margin-left: 30px;
     background-color:#f3f3f3ff;
     margin-bottom: 40px;
@@ -16,14 +21,11 @@
     display: flex;
     flex-wrap: wrap;
   }
-  
   .sectionA{
-  background-color: #cfe2f3ff;
-  width: 250px;
-  height: 500px;
-  margin-left: 30px;
-  }
-  
+    width: 250px;
+    height: 500px;
+    margin-left: 30px;
+    }
 
   .sectionBparent > div {
     display: flex;
@@ -78,7 +80,7 @@
     margin-top: 1px;
   }
   .footer{
-    margin-top: 50px;
+    margin-top: auto;
     width:1360px;
     height:100px;
     background-color: #cfe2f3ff;
@@ -88,15 +90,18 @@
     width:60px;
     height:60px;
     position:relative;
-    margin-top:-1px;
+    margin-top: 6px;
     margin-left: 10px;
 }
 .img2{
-    width:90px;
-    height:90px;
+    width:110px;
+    height:110px;
     position:relative;
-    margin-top:-800px;
-    margin-left: 1200px;
+    margin-top:-600px;
+    margin-left: 1090px;
 }
-
-
+.img3{
+  width: 300px;
+  height: 450px;
+  margin-left: 30px;
+}
