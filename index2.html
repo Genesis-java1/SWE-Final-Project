@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Page</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="profile-container">
+    <div class="cover-photo">
+    <img src="assets/TSU.jpg" alt="Cover Photo">
+</div>
+      
+      <div class="profile-picture"><img src="assets/1mb head shot.jpg" alt="Profile Picture"></div> 
+        <div class="bottom-left-section">
+         
+            <div class="label">Current Employment
+            <li class="sub"><span>Unemployed</span></li>
+            </div>
+            
+            <div class="label">Current Location
+            <li class="sub"><span>Chicago, IL</span></li>
+            </div>
+
+            <div class="label">Mission Statement
+            <li class="sub"><span class="mission">Success is not final, failure is not fatal:<br />it is the courage to continue that counts.</span></li>
+            </div>
+            
+            <div class="label">Contact Info
+            <li class="sub"><span>123-456-7890</span></li>
+            <li class="sub"><span>Softwareislife@gmail.com</span></li> 
+            </div>
+        </div>
+        <div class="info-section">
+        <div class="name">Treyvon Willams</div>
+          
+           <button class="accordion">Skills</button>
+           <div class="panel">
+           
+            <li>
+            <span>Python Programing</span>
+            </li>
+            <li>
+            <span>Java programing</span>
+            </li>
+
+            <li>
+            <span>Microsoft Office</span>
+            </li>
+
+            <li>
+            <span>Microsoft Excel</span>
+            </li>
+           
+           </div>
+        
+           
+           <button class="accordion">Experience</button>
+           <div class="panel">
+            
+            <li>
+            <span>Director Consulting Services</span>
+            <p className="ps-4 mb-1">July 2024 - Present</p>
+            </li>
+            <li>
+            <span>Director Consulting Services</span>
+            <p className="ps-4 mb-1">July 2024 - Present</p>
+            </li>
+           
+           </div>
+
+           <button class="accordion">Location perferences</button>
+           <div class="panel">
+            
+            <li>
+            <span>Chicago, IL</span>
+            </li>
+           
+           </div>
+
+           <button class="accordion">Education</button>
+           <div class="panel">
+            
+            <li>
+            <span>Thornthon Fractional North High School</span>
+            <p className="ps-4 mb-1">Aug 2018 - May 2022</p>
+            </li>
+            <li>
+            <span>Tennessee State University</span>
+            <p className="ps-4 mb-1">Aug 2022 - Present</p>
+            </li>
+           
+           </div>
+
+
+
+
+            <script>
+            var acc = document.getElementsByClassName("accordion");
+            var i;
+            
+            for (i = 0; i < acc.length; i++) {
+              acc[i].addEventListener("click", function() {
+                this.classList.toggle("active");
+                var panel = this.nextElementSibling;
+                if (panel.style.display === "block") {
+                  panel.style.display = "none";
+                } else {
+                  panel.style.display = "block";
+                }
+              });
+            }
+            </script>
+        </div>
+    </div>
+</body>
+</html>
