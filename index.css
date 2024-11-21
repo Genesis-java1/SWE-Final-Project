@@ -20,12 +20,14 @@
     flex-direction: row;
     display: flex;
     flex-wrap: wrap;
+    position: relative;
   }
   .sectionA{
     width: 330px;
     height: 800px;
     background-color: #cfe2f3ff;
     margin-left: 30px;
+    position: relative;
     }
  
 
@@ -106,4 +108,14 @@
   width: 360px;
   height: 620px;
   margin-left: -6px;
+  z-index: 1;
+  position: absolute;
+}
+.img4{
+margin-top: -50px;
+margin-left: 60px;
+width: 220px;
+height: 120px;
+z-index: 2;
+position: absolute;
 }
