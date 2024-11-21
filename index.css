@@ -22,20 +22,22 @@
     flex-wrap: wrap;
   }
   .sectionA{
-    width: 250px;
-    height: 500px;
+    width: 330px;
+    height: 800px;
+    background-color: #cfe2f3ff;
     margin-left: 30px;
     }
+ 
 
   .sectionBparent > div {
     display: flex;
     align-items: center;
     margin-bottom: 5px;
     background-color: #f7f6f6ff;
-    width: 900px;
+    width: 800px;
     height: 87px;
     margin-bottom: 20px;
-    margin-left: 100px;
+    margin-left: 80px;
   }
 
   .sectionB1{
@@ -101,7 +103,7 @@
     margin-left: 1060px;
 }
 .img3{
-  width: 300px;
-  height: 450px;
-  margin-left: 30px;
+  width: 360px;
+  height: 620px;
+  margin-left: -6px;
 }
