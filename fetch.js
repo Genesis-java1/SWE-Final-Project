@@ -1,6 +1,9 @@
 document.addEventListener('DOMContentLoaded', () => {
     fetch('data.json')
-        .then(response => response.json())
+        .then(response => {
+            if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+            return response.json();
+        })
         .then(data => {
             const studentList = document.getElementById('studentList');
             data.forEach((student, index) => {
@@ -15,7 +18,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 // Create the student info element
                 const studentInfo = document.createElement('div');
                 studentInfo.className = 'studentInfoParent';
-                studentInfo.innerHTML = `<p>${student.name}</p>`;
+
+                // Populate the full name
+                studentInfo.innerHTML = `<span>${student.first_name} ${student.last_name}</span>`;
 
                 // Append circle and student info to the section div
                 sectionDiv.appendChild(circle);
