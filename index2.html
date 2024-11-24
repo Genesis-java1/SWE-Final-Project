@@ -8,113 +8,127 @@
 </head>
 <body>
     <div class="profile-container">
-    <div class="cover-photo">
-    <img src="assets/TSU.jpg" alt="Cover Photo">
-</div>
-      
-      <div class="profile-picture"><img src="assets/1mb head shot.jpg" alt="Profile Picture"></div> 
+        <div class="cover-photo">
+            <img id="coverPhoto" src="assets/TSU.jpg" alt="Cover Photo">
+        </div>
+        <div class="profile-picture">
+            <img id="profilePicture" src="assets/default.jpg" alt="Profile Picture">
+        </div>
         <div class="bottom-left-section">
-         
             <div class="label">Current Employment
-            <li class="sub"><span>Unemployed</span></li>
+                <li class="sub"><span id="employmentStatus">Unemployed</span></li>
             </div>
-            
             <div class="label">Current Location
-            <li class="sub"><span>Chicago, IL</span></li>
+                <li class="sub"><span id="currentLocation">Location not set</span></li>
             </div>
-
             <div class="label">Mission Statement
-            <li class="sub"><span class="mission">Success is not final, failure is not fatal:<br />it is the courage to continue that counts.</span></li>
+                <li class="sub"><span id="missionStatement" class="mission">No mission statement available</span></li>
             </div>
-            
             <div class="label">Contact Info
-            <li class="sub"><span>123-456-7890</span></li>
-            <li class="sub"><span>Softwareislife@gmail.com</span></li> 
+                <li class="sub"><span id="phoneNumber">No phone number</span></li>
+                <li class="sub"><span id="emailAddress">No email address</span></li>
             </div>
         </div>
         <div class="info-section">
-        <div class="name">Treyvon Willams</div>
-          
-           <button class="accordion">Skills</button>
-           <div class="panel">
-           
-            <li>
-            <span>Python Programing</span>
-            </li>
-            <li>
-            <span>Java programing</span>
-            </li>
+            <div id="name" class="name">Name not set</div>
 
-            <li>
-            <span>Microsoft Office</span>
-            </li>
+            <button class="accordion">Skills</button>
+            <div id="skillsPanel" class="panel"></div>
 
-            <li>
-            <span>Microsoft Excel</span>
-            </li>
-           
-           </div>
-        
-           
-           <button class="accordion">Experience</button>
-           <div class="panel">
-            
-            <li>
-            <span>Director Consulting Services</span>
-            <p className="ps-4 mb-1">July 2024 - Present</p>
-            </li>
-            <li>
-            <span>Director Consulting Services</span>
-            <p className="ps-4 mb-1">July 2024 - Present</p>
-            </li>
-           
-           </div>
+            <button class="accordion">Experience</button>
+            <div id="experiencePanel" class="panel"></div>
 
-           <button class="accordion">Location perferences</button>
-           <div class="panel">
-            
-            <li>
-            <span>Chicago, IL</span>
-            </li>
-           
-           </div>
+            <button class="accordion">Location Preferences</button>
+            <div id="locationPreferencesPanel" class="panel"></div>
 
-           <button class="accordion">Education</button>
-           <div class="panel">
-            
-            <li>
-            <span>Thornthon Fractional North High School</span>
-            <p className="ps-4 mb-1">Aug 2018 - May 2022</p>
-            </li>
-            <li>
-            <span>Tennessee State University</span>
-            <p className="ps-4 mb-1">Aug 2022 - Present</p>
-            </li>
-           
-           </div>
-
-
-
+            <button class="accordion">Education</button>
+            <div id="educationPanel" class="panel"></div>
 
             <script>
-            var acc = document.getElementsByClassName("accordion");
-            var i;
-            
-            for (i = 0; i < acc.length; i++) {
-              acc[i].addEventListener("click", function() {
-                this.classList.toggle("active");
-                var panel = this.nextElementSibling;
-                if (panel.style.display === "block") {
-                  panel.style.display = "none";
-                } else {
-                  panel.style.display = "block";
+                var acc = document.getElementsByClassName("accordion");
+                var i;
+
+                for (i = 0; i < acc.length; i++) {
+                    acc[i].addEventListener("click", function () {
+                        this.classList.toggle("active");
+                        var panel = this.nextElementSibling;
+                        if (panel.style.display === "block") {
+                            panel.style.display = "none";
+                        } else {
+                            panel.style.display = "block";
+                        }
+                    });
                 }
-              });
-            }
             </script>
         </div>
     </div>
-    
     <p><a href="index.html">Page 1</a></p>
+
+    <script>
+        // Get the ID from the query parameter
+        const params = new URLSearchParams(window.location.search);
+        const studentId = params.get('id');
+
+        if (studentId) {
+            fetch('data.json')
+                .then(response => response.json())
+                .then(data => {
+                    const student = data.find(s => s.id == studentId);
+
+                    if (student) {
+                        // Dynamically update the profile page
+                        document.getElementById('name').innerText = `${student.first_name} ${student.last_name}`;
+                        document.getElementById('employmentStatus').innerText = student.employmentStatus || 'Unemployed';
+                        document.getElementById('currentLocation').innerText = student.location || 'Unknown';
+                        document.getElementById('missionStatement').innerText = student.mission || 'No mission statement';
+                        document.getElementById('phoneNumber').innerText = student.phone || 'No phone number';
+                        document.getElementById('emailAddress').innerText = student.email || 'No email';
+
+                        // Populate skills
+                        const skillsPanel = document.getElementById('skillsPanel');
+                        (student.skills || []).forEach(skill => {
+                            const li = document.createElement('li');
+                            li.innerText = skill;
+                            skillsPanel.appendChild(li);
+                        });
+
+                        // Populate experience
+                        const experiencePanel = document.getElementById('experiencePanel');
+                        (student.experience || []).forEach(exp => {
+                            const li = document.createElement('li');
+                            li.innerHTML = `
+                                <span>${exp.role}</span>
+                                <p>${exp.dates}</p>
+                            `;
+                            experiencePanel.appendChild(li);
+                        });
+
+                        // Populate location preferences
+                        const locationPreferencesPanel = document.getElementById('locationPreferencesPanel');
+                        (student.locationPreferences || []).forEach(loc => {
+                            const li = document.createElement('li');
+                            li.innerText = loc;
+                            locationPreferencesPanel.appendChild(li);
+                        });
+
+                        // Populate education
+                        const educationPanel = document.getElementById('educationPanel');
+                        (student.education || []).forEach(edu => {
+                            const li = document.createElement('li');
+                            li.innerHTML = `
+                                <span>${edu.institution}</span>
+                                <p>${edu.dates}</p>
+                            `;
+                            educationPanel.appendChild(li);
+                        });
+                    } else {
+                        document.body.innerHTML = '<h1>Student not found.</h1>';
+                    }
+                })
+                .catch(error => console.error('Error loading student data:', error));
+        } else {
+            document.body.innerHTML = '<h1>No student ID provided in the URL.</h1>';
+        }
+    </script>
 </body>
 </html>
