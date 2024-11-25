@@ -6,8 +6,14 @@ document.addEventListener('DOMContentLoaded', () => {
         })
         .then(data => {
             const studentList = document.getElementById('studentList');
+
+            if (!studentList) {
+                console.error('Element with ID "studentList" not found!');
+                return;
+            }
+
             data.forEach((student, index) => {
-                console.log(student); // Check if student objects are being loaded correctly
+                console.log('Student:', student); // Check if student objects are loaded correctly
 
                 const sectionDiv = document.createElement('div');
                 sectionDiv.className = `sectionB${index + 1}`;
@@ -23,14 +29,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 sectionDiv.appendChild(circle);
                 sectionDiv.appendChild(studentInfo);
 
-                // Check if student.id is being passed correctly
-                console.log('Student ID:', student.id);  // Add a log to verify student.id
-
                 sectionDiv.addEventListener('click', () => {
                     if (student.id) {
-                        window.location.href = `s${student.id}.html`; // Redirect to unique student page
+                        const redirectURL = `s${student.id}.html`;
+                        console.log(`Redirecting to: ${redirectURL}`);
+                        window.location.href = redirectURL; // Redirect to unique student page
                     } else {
-                        console.error("Student ID is undefined!");
+                        console.error('Student ID is undefined!');
                     }
                 });
 
@@ -38,9 +43,5 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         })
         .catch(error => console.error('Error fetching student data:', error));
-        
-        sectionDiv.addEventListener('click', () => {
-            // Log the URL to check if it's correct
-            console.log(`Redirecting to: s${student.id}.html`);
-            window.location.href = `s${student.id}.html`; // This redirects to the student profile
 });
+

@@ -106,7 +106,7 @@
   }
   
   .expandable {
-    background-color: #80bfff;
+    background-color: #cfe2f3ff;
     padding: 10px;
     border-radius: 4px;
     display: flex;
@@ -125,7 +125,7 @@
     color: #fff;
   }
   .accordion {
-    background-color: rgb(30, 7, 238);
+    background-color: #cfe2f3ff;
     color: rgb(5, 5, 5);
     cursor: pointer;
     padding: 18px;

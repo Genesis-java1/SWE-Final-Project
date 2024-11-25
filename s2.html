@@ -4,9 +4,134 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bob Smith's Profile</title>
+    <link rel="stylesheet" href="profile.css">
 </head>
 <body>
-    <p>HELLO WORLD!!!???</p>
-    <p><a href="index.html">Back to Student List</a></p>
+    <div class="profile-container">
+    <div class="cover-photo">
+    <img src="assets/TSU.jpg" alt="Cover Photo">
+</div>
+      
+      <div class="profile-picture"><img src="Images/profile5.jpg" alt="Profile Picture"></div> 
+        <div class="bottom-left-section">
+         
+            <div class="label">Current Employment
+            <li class="sub"><span>Unemployed</span></li>
+            </div>
+            
+            <div class="label">Current Location
+            <li class="sub"><span>Nashville, TN</span></li>
+            </div>
+
+            <div class="label">Mission Statement
+            <li class="sub"><span class="mission">The mind is the biggest tool we have.</li>
+            </div>
+            
+            <div class="label">Contact Info
+            <li class="sub"><span>615-677-3257</span></li>
+            <li class="sub"><span>blueboy@gmail.com</span></li> 
+            </div>
+        </div>
+        <div class="info-section">
+        <div class="name">Bob Smith</div>
+          
+           <button class="accordion">Skills</button>
+           <div class="panel">
+           
+            <li>
+            <span>Quantitve Analysis </span>
+            </li>
+            <li>
+            <span>Cost Mangement</span>
+            </li>
+
+            <li>
+            <span>Sales Research</span>
+            </li>
+
+            <li>
+            <span>Microsoft Suite</span>
+            </li>
+           
+           </div>
+        
+           
+           <button class="accordion">Experience</button>
+           <div class="panel">
+            
+            <li>
+            <span>XYZ Tech Solutions</span>
+            <p className="ps-4 mb-1">June 2021 - December 2022</p>
+            </li>
+            <li>
+            <span> Software Engineer Intern </span>
+            <p className="ps-4 mb-1">Feburaury 2021 - May 2021</p>
+            </li>
+           
+           </div>
+
+           <button class="accordion">Location perferences</button>
+           <div class="panel">
+            
+            <li>
+            <span>Nashville, TN</span>
+            </li>
+           
+           </div>
+
+           <button class="accordion">Education</button>
+           <div class="panel">
+            
+          
+            <li>
+            <span>Fisk University</span>
+            <p className="ps-4 mb-1">Aug 2021 - Present</p>
+            </li>
+           
+           </div>
+
+           <script>
+            const urlParams = new URLSearchParams(window.location.search);
+            const studentId = urlParams.get('id');
+        
+            async function loadStudentProfile() {
+              const response = await fetch(`/api/student/${studentId}`);
+              const student = await response.json();
+        
+              document.getElementById('student-name').textContent = `${student.first_name} ${student.last_name}`;
+              document.getElementById('profile-picture').src = student.profile_picture;
+              document.getElementById('current-employment').textContent = `Current Employment: ${student.current_employment}`;
+              document.getElementById('current-location').textContent = `Location: ${student.current_location}`;
+              document.getElementById('mission-statement').textContent = `Mission Statement: ${student.mission_statement}`;
+              document.getElementById('skills').textContent = `Skills: ${student.skills}`;
+              document.getElementById('experience').textContent = `Experience: ${student.experience}`;
+              document.getElementById('education').textContent = `Education: ${student.education}`;
+              document.getElementById('preferred-location').textContent = `Preferred Location: ${student.preferred_location}`;
+            }
+        
+            loadStudentProfile();
+          </script>
+        
+
+
+
+            <script>
+            var acc = document.getElementsByClassName("accordion");
+            var i;
+            
+            for (i = 0; i < acc.length; i++) {
+              acc[i].addEventListener("click", function() {
+                this.classList.toggle("active");
+                var panel = this.nextElementSibling;
+                if (panel.style.display === "block") {
+                  panel.style.display = "none";
+                } else {
+                  panel.style.display = "block";
+                }
+              });
+            }
+            </script>
+        </div>
+    </div>
 </body>
 </html>
