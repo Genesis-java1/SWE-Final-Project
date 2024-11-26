@@ -1,7 +1,13 @@
 * {
     box-sizing: border-box;
   }
-  
+  .home{
+    width: 130px;
+    height:100px;
+    position: absolute;
+    top: 115px;
+  margin-right: -690px;  
+}
   body {
     font-family: Arial, sans-serif;
     display: flex;

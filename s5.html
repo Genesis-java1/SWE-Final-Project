@@ -1,13 +1,120 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Evan Brown Profile</title>
+    <title>Profile Page</title>
+    <link rel="stylesheet" href="profile.css">
 </head>
-<body>
-    <p>LOL</p>
 
-    <p><a href="index.html">Back to Student List</a></p>
+<body>
+
+
+
+    <div class="profile-container">
+        <div class="cover-photo">
+            <img src="Images/banner3.jpg"
+                alt="Cover Photo">
+        </div>
+
+        <div class="profile-picture"><img src="Images/profile1.jpg" alt="Profile Picture"></div>
+        <div class="bottom-left-section">
+
+            <div class="label">Current Employment
+                <li class="sub"><span id="employment">Employed</span></li>
+            </div>
+
+            <div class="label">Current Location
+                <li class="sub"><span id="location">Miami, USA</span></li>
+            </div>
+
+            <div class="label">Mission Statement
+                <li class="sub"><span id="mission">Devoted to using data to</span></li>
+
+                <li class="sub"><span id="mission">further our world</span></li>
+            </div>
+
+            <div class="label">Contact Info
+                <li class="sub"><span id="phone">+1 (555) 969-5367</span></li>
+                <li class="sub"><span id="stEmail">bob.brown@gmail.com</span></li>
+            </div>
+        </div>
+        <div class="info-section">
+            <div class="name" id='stName'>Evan Brown</div>
+
+            <button class="accordion">Skills</button>
+            <div class="panel">
+
+                <li>
+                    <span>Python</span>
+                </li>
+                <li>
+                    <span>R</span>
+                </li>
+                <li>
+                    <span>SQL</span>
+                </li>
+
+            </div>
+
+
+            <button class="accordion">Experience</button>
+            <div class="panel">
+
+                <li>
+                    <span>Data Scientist</span>
+                    <p className="ps-4 mb-1">May 2024 - Present</p>
+                </li>
+            </div>
+
+            <button class="accordion">Location perferences</button>
+            <div class="panel">
+
+                <li>
+                    <span>Miami, USA</span>
+                </li>
+
+            </div>
+
+            <button class="accordion">Education</button>
+            <div id="education" class="panel">
+
+                <li>
+                    <span>Evergreen Valley High School</span>
+                    <p className="ps-4 mb-1">Aug 2017 - May 2021</p>
+                </li>
+                <li>
+                    <span>Tennessee State University</span>
+                    <p className="ps-4 mb-1">Aug 2022 - Present</p>
+                </li>
+
+            </div>
+
+
+
+            <script>
+                var acc = document.getElementsByClassName("accordion");
+                var i;
+
+                for (i = 0; i < acc.length; i++) {
+                    acc[i].addEventListener("click", function () {
+                        this.classList.toggle("active");
+                        var panel = this.nextElementSibling;
+                        if (panel.style.display === "block") {
+                            panel.style.display = "none";
+                        } else {
+                            panel.style.display = "block";
+                        }
+                    });
+                }
+            </script>
+
+        </div>
+    </div>
+    <a href="index.html" class="home">
+        <img src="Images/homebutton.png" class="home" alt="">
+    </a>
 </body>
+
 </html>
