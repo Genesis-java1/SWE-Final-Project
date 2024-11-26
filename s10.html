@@ -4,10 +4,134 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jackie Scott Profile</title>
+    <link rel="stylesheet" href="profile.css">
 </head>
 <body>
-    <p>yay</p>
+    <div class="profile-container">
+    <div class="cover-photo">
+    <img src="Images/banner2.jpg" alt="Cover Photo">
+</div>
+      
+      <div class="profile-picture"><img src="Images/profile4.jpg" alt="Profile Picture"></div> 
+        <div class="bottom-left-section">
+         
+            <div class="label">Current Employment
+            <li class="sub"><span>TeraData</span></li>
+            </div>
+            
+            <div class="label">Current Location
+            <li class="sub"><span>Charlotte, NC</span></li>
+            </div>
 
-    <p><a href="index.html">Back to Student List</a></p>
+            <div class="label">Mission Statement
+            <li class="sub"><span class="mission">You miss 100% of shots you don't take!<br /></span></li>
+            </div>
+            
+            <div class="label">Contact Info
+            <li class="sub"><span>980-212-3535</span></li>
+            <li class="sub"><span>jscott@outlook.com</span></li> 
+            </div>
+        </div>
+        <div class="info-section">
+        <div class="name">Jackie Scott</div>
+          
+           <button class="accordion">Skills</button>
+           <div class="panel">
+           
+            <li>
+            <span>Communnication</span>
+            </li>
+            <li>
+            <span>Phyton programing</span>
+            </li>
+
+            <li>
+            <span>Tableau</span>
+            </li>
+
+            <li>
+            <span>Microsoft Access</span>
+            </li>
+           
+           </div>
+        
+           
+           <button class="accordion">Experience</button>
+           <div class="panel">
+            
+            <li>
+            <span>TeraData</span>
+            <p className="ps-4 mb-1">July 2021 - Present</p>
+            </li>
+            <li>
+            <span>JHU Research Instituion</span>
+            <p className="ps-4 mb-1">June 2020 - August 2020</p>
+            </li>
+           
+           </div>
+
+           <button class="accordion">Location perferences</button>
+           <div class="panel">
+            
+            <li>
+            <span>Charlotte, NC</span>
+            </li>
+           
+           </div>
+
+           <button class="accordion">Education</button>
+           <div class="panel">
+            
+            <li>
+            <span>Brandton High School</span>
+            <p className="ps-4 mb-1">Aug 2016 - May 2020</p>
+            </li>
+            <li>
+            <span>Tennessee State University</span>
+            <p className="ps-4 mb-1">Aug 2021 - May 2025</p>
+            </li>
+           
+           </div>
+
+           <script>
+            const urlParams = new URLSearchParams(window.location.search);
+            const studentId = urlParams.get('id');
+        
+            async function loadStudentProfile() {
+              const response = await fetch(`/api/student/${studentId}`);
+              const student = await response.json();
+        
+              document.getElementById('student-name').textContent = `${student.first_name} ${student.last_name}`;
+              document.getElementById('profile-picture').src = student.profile_picture;
+              document.getElementById('current-employment').textContent = `Current Employment: ${student.current_employment}`;
+              document.getElementById('current-location').textContent = `Location: ${student.current_location}`;
+              document.getElementById('mission-statement').textContent = `Mission Statement: ${student.mission_statement}`;
+              document.getElementById('skills').textContent = `Skills: ${student.skills}`;
+              document.getElementById('experience').textContent = `Experience: ${student.experience}`;
+              document.getElementById('education').textContent = `Education: ${student.education}`;
+              document.getElementById('preferred-location').textContent = `Preferred Location: ${student.preferred_location}`;
+            }
+        
+            loadStudentProfile();
+          </script>
+
+            <script>
+            var acc = document.getElementsByClassName("accordion");
+            var i;
+            
+            for (i = 0; i < acc.length; i++) {
+              acc[i].addEventListener("click", function() {
+                this.classList.toggle("active");
+                var panel = this.nextElementSibling;
+                if (panel.style.display === "block") {
+                  panel.style.display = "none";
+                } else {
+                  panel.style.display = "block";
+                }
+              });
+            }
+            </script>
+        </div>
+    </div>
 </body>
 </html>

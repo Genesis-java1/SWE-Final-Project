@@ -95,3 +95,19 @@ height: 120px;
 z-index: 2;
 position: absolute;
 }
+.img5{
+margin-left: 10px;
+width: 320px;
+height: 200px;
+z-index: 3;
+position: absolute;
+bottom: 40px;
+}
+.img6{
+  margin-left: 10px;
+  width: 320px;
+  height: 200px;
+  z-index: 3;
+  position: absolute;
+  bottom: 20px;
+}
