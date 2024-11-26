@@ -1,12 +1,136 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Charlie Williams Profile</title>
+    <link rel="stylesheet" href="S2.css">
 </head>
 <body>
-<p>ARE YOU WORKING RN</p>
-    <p><a href="index.html">Back to Student List</a></p>
+    <div class="profile-container">
+    <div class="cover-photo">
+    <img src="assets/TSU.jpg" alt="Cover Photo">
+</div>
+      
+      <div class="profile-picture"><img src="assets/1mb head shot.jpg" alt="Profile Picture"></div> 
+        <div class="bottom-left-section">
+         
+            <div class="label">Current Employment
+            <li class="sub"><span>Software Engineer @Allstate Insurance Company</span></li>
+            </div>
+            
+            <div class="label">Current Location
+            <li class="sub"><span>Remote, US/span></li>
+            </div>
+
+            <div class="label">Mission Statement
+            <li class="sub"><span class="mission">Making world better with tech!.<br /></span></li>
+            </div>
+            
+            <div class="label">Contact Info
+            <li class="sub"><span>862-276-77877</span></li>
+            <li class="sub"><span>charlie12@gmail.com</span></li> 
+            </div>
+        </div>
+        <div class="info-section">
+        <div class="name">Ncell </div>
+          
+           <button class="accordion">Skills</button>
+           <div class="panel">
+           
+            <li>
+            <span>Problem Solving</span>
+            </li>
+            <li>
+            <span>C# programing</span>
+            </li>
+
+            <li>
+            <span>C++ programming</span>
+            </li>
+
+            <li>
+            <span>System Design</span>
+            </li>
+           
+           </div>
+        
+           
+           <button class="accordion">Experience</button>
+           <div class="panel">
+            
+            <li>
+            <span>Allstate Insurance Company</span>
+            <p className="ps-4 mb-1">March 2010 - Present </p>
+            </li>
+            <li>
+            <span>State Farm</span>
+            <p className="ps-4 mb-1">Oct 2009 - March 2010</p>
+            </li>
+           
+           </div>
+
+           <button class="accordion">Location perferences</button>
+           <div class="panel">
+            
+            <li>
+            <span>Remote, US</span>
+            </li>
+           
+           </div>
+
+           <button class="accordion">Education</button>
+           <div class="panel">
+            
+            <li>
+            <span>Trinity High School</span>
+            <p className="ps-4 mb-1">Aug 2016 - May 2020</p>
+            </li>
+            <li>
+            <span>Fisk University</span>
+            <p className="ps-4 mb-1">Aug 2020 - 2024</p>
+            </li>
+           
+           </div>
+
+           <script>
+            const urlParams = new URLSearchParams(window.location.search);
+            const studentId = urlParams.get('id');
+        
+            async function loadStudentProfile() {
+              const response = await fetch(`/api/student/${studentId}`);
+              const student = await response.json();
+        
+              document.getElementById('student-name').textContent = `${student.first_name} ${student.last_name}`;
+              document.getElementById('profile-picture').src = student.profile_picture;
+              document.getElementById('current-employment').textContent = `Current Employment: ${student.current_employment}`;
+              document.getElementById('current-location').textContent = `Location: ${student.current_location}`;
+              document.getElementById('mission-statement').textContent = `Mission Statement: ${student.mission_statement}`;
+              document.getElementById('skills').textContent = `Skills: ${student.skills}`;
+              document.getElementById('experience').textContent = `Experience: ${student.experience}`;
+              document.getElementById('education').textContent = `Education: ${student.education}`;
+              document.getElementById('preferred-location').textContent = `Preferred Location: ${student.preferred_location}`;
+            }
+        
+            loadStudentProfile();
+          </script>
+
+            <script>
+            var acc = document.getElementsByClassName("accordion");
+            var i;
+            
+            for (i = 0; i < acc.length; i++) {
+              acc[i].addEventListener("click", function() {
+                this.classList.toggle("active");
+                var panel = this.nextElementSibling;
+                if (panel.style.display === "block") {
+                  panel.style.display = "none";
+                } else {
+                  panel.style.display = "block";
+                }
+              });
+            }
+            </script>
+        </div>
+    </div>
 </body>
 </html>
