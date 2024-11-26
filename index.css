@@ -60,7 +60,7 @@
     margin-top: 1px;
   }
   .footer{
-    margin-top: auto;
+    margin-top: 90px;
     width:1360px;
     height:100px;
     background-color: #cfe2f3ff;
@@ -89,10 +89,10 @@
 }
 .img4{
 margin-top: -50px;
-margin-left: 60px;
-width: 220px;
-height: 120px;
-z-index: 2;
+margin-left: 11px;
+width: 320px;
+height: 220px;
+z-index: 1;
 position: absolute;
 }
 .img5{
@@ -104,10 +104,19 @@ position: absolute;
 bottom: 40px;
 }
 .img6{
-  margin-left: 10px;
+  margin-left: 42px;
   width: 320px;
   height: 200px;
   z-index: 3;
   position: absolute;
-  bottom: 20px;
+  bottom: 52px;
+
+}
+.img7{
+  margin-left: 42px;
+  width: 320px;
+  height: 100px;
+  z-index: 3;
+  position: absolute;
+  bottom: -10px;
 }
